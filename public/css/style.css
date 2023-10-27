@@ -1,0 +1,974 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --grey: #999;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --red:#D90429;
+  --DarkBlue:#23527c;
+  --lightBlue:#337ab7;
+
+
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+}
+/* ===============================NAVIGATION(NAV & MENU)============================ */
+#navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--lightBlue);
+  border-left: 10px solid var(--lightBlue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+#navigation.active {
+  width: 80px;
+}
+
+#navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 100%;
+}
+
+#navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+#navigation ul li:hover,
+#navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+#navigation ul li:nth-child(1)  {
+  margin-bottom: 40px;
+  /* pointer-events: none; */
+}
+
+#navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+
+#navigation ul li:hover a,
+#navigation ul li.hovered a {
+  color: var(--red);
+}
+
+#navigation ul li a #icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+
+#navigation ul li a #title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+#navigation ul li a #icon ion-icon {
+  font-size: 1.75rem;
+}
+
+
+--------- curve outside whene hover ----------
+#navigation ul li:hover a::before,
+#navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+#navigation ul li:hover a::after,
+#navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+#main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+#main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+/*--------- navbar----------- */
+#topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+#search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+#search label {
+  position: relative;
+  width: 100%;
+}
+
+#search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+#search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: var(--red);
+  font-size: 1.2rem;
+}
+
+#user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+;
+}
+
+#username {
+  margin-right: 10px;
+  font-size: 16px;
+  color: var(--red);
+}
+
+
+/* ===============================DASHBOARD PAGE=================================== */
+
+/* ======================= Cards ====================== */
+#cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+#cardBox #card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+#cardBox #card #numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--red);
+}
+
+#cardBox #card #cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+#cardBox #card #iconBx {
+  font-size: 3.5rem;
+  color: var(--lightBlue);
+}
+
+#cardBox #card:hover {
+  background: var(--red);
+}
+#cardBox #card:hover #numbers,
+#cardBox #card:hover #cardName,
+#cardBox #card:hover #iconBx {
+  color: var(--white);
+}
+
+/* ================== Charts JS ============== */
+#chartsBx{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 30px;
+}
+
+#chartsBx #chart{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  /* border: 1px solid var(--gray); */
+}
+
+
+/* ================== recent statistics ============== */
+#details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+  /* margin-top: 10px; */
+}
+
+/* ------------------recent absence table  ----------------------*/
+#details #recentAbsence {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+#details #cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#cardHeader h2 {
+  font-weight: 600;
+  color: var(--red);
+}
+#cardHeader #btn {
+  position: relative;
+  padding: 5px 10px;
+  background: var(--grey);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+#cardHeader #btn:hover {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+#details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#details table thead td {
+  font-weight: 600;
+}
+#details #recentAbsence table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#details #recentAbsence tr:last-child {
+  border-bottom: none;
+}
+
+#details #recentAbsence table tbody tr:hover {
+  background: var(--black2);
+  color: var(--white);
+}
+
+#details #recentAbsence  table tr td {
+  padding: 10px;
+}
+#details #recentAbsence  table tr td:last-child {
+  text-align: end;
+}
+#details #recentAbsence table tr td:nth-child(2) {
+  text-align: end;
+}
+#details #recentAbsence  tr td:nth-child(3) {
+  text-align: center;
+}
+#justifier {
+  padding: 2px 4px;
+  background: #8de02c;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+#nonJustifier {
+  padding: 2px 4px;
+  background: #f00;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ------------------recent perdiction table  */
+#recentPerdiction {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px;
+  background: var(--white);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  display: inline-block;
+}
+#recentPerdiction #imgBx {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+#recentPerdiction #imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#recentPerdiction table tr td {
+  padding: 12px 10px;
+}
+#recentPerdiction table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+#recentPerdiction table tr td h4 span {
+  font-size: 14px;
+  color: var(--black2);
+}
+#recentPerdiction table tr:hover {
+  background: var(--grey);
+  color: var(--white);
+}
+#recentPerdiction table tr:hover td h4 span {
+  color: var(--white);
+}
+
+
+/* ===============================ABSENCE PAGE=================================== */
+#absenceGrid {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 200px 300px 500px;
+}
+#AbsgridItem{
+  display: inline-block;
+}
+
+#AbsgridItem button,select,input{
+  font-size:1em ;
+}
+
+/* -------------absence h1-------------------- */
+#absenceGrid ,#AjouterAbsence h1{
+  font-weight: 500;
+  text-align: center;
+}
+
+/* --------------buttons-------------------------- */
+#AbsgridItem a,button{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+#AbsgridItem #btn_danger{
+  background-color: var(--red);
+  color:#fff!important;
+}
+#AbsgridItem #btn_outline_danger{
+  background-color: transparent;
+  border:1px solid var(--red);
+  color:var(--red)!important;
+}
+
+#AbsgridItem #btn_outline_danger:hover{
+  background-color: var(--red);
+  color: var(--white) !important;
+}
+
+/* ----------------absence filter  date inputs--------- */
+#AbsgridItem input{
+  width: 150px !important;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 38px;
+}
+#AbsgridItem input[type="date"]:hover{
+  outline: none;
+  border-color:var(--red);
+}
+
+/* -----------------absence filter  select---------- */
+#AbsgridItem select {
+  width: 150px !important;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#AbsgridItem select:hover{
+  outline: none;
+  border-color:var(--red);
+}
+
+/*---------------------absence table-------------------*/
+
+#absenceTableGrid{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+
+}
+#absenceTableGrid table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#absenceTableGrid table thead td {
+  font-weight: 600;
+}
+#absenceTableGrid table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#absenceTableGridtable tr:last-child {
+  border-bottom: none;
+}
+
+#absenceTableGrid  table tbody tr:hover {
+  background: var(--black2);
+  color: var(--white);
+}
+#absenceTableGrid table tr td {
+  padding: 10px;
+}
+#absenceTableGrid table tr td:last-child {
+  text-align: end;
+}
+#absenceTableGrid table tr td:nth-child(2) {
+  text-align: end;
+}
+#absenceTableGridtable tr td:nth-child(3) {
+  text-align: center;
+}
+
+/*===========================Ajouter absence page====================*/
+#AjouterAbsence{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+}
+/* -------------absence form------------------- */
+
+#formAbs {
+  position: relative;
+  top: 50px;
+  align-items: center;
+  width: 90%;
+  display: grid;
+  margin: 0 auto;
+}
+
+#form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#form-group {
+  flex-basis: calc(50% - 10px);
+}
+
+#form-row #form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+#form-row  #form-group select,
+input{
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button[type="submit"],
+button[type="button"],
+button[type="reset"] {
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 5px;
+  
+}
+
+button[type="reset"] {
+  background-color: transparent;
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+ #form-row  #form-group input:hover,
+ #form-row  #form-group select:hover{
+  outline: none;
+  border-color:var(--red);
+}
+
+#form-row  #form-group button[type="reset"]:hover{
+  background-color: var(--red);
+  color: var(--white) !important;
+}
+
+
+/* ==========================afficher abs page======================== */
+/* -----------card--------------- */
+#card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: auto;
+  position: relative;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+  top: 20px;
+}
+/* -----------card-header--------------- */
+#card-header {
+  background-color: #f1f1f1;
+  padding: 8px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#card-header h3 {
+  margin: 0;
+}
+/* -----------card-body--------------- */
+
+#card-body {
+  margin-top: 20px;
+
+}
+/* -----------card-table--------------- */
+
+#card #card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#card #card-body table td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+#card #card-body table td:first-child {
+  font-weight: bold;
+}
+
+
+#card #card-body table tr:hover {
+  background: var(--black2);
+  color: var(--white);
+}
+#card #card-body table tr td {
+  padding: 10px;
+}
+
+/* -----------card-footer--------------- */
+#card-footer{
+  margin-top: 20px;
+}
+#card-footer a{
+  text-decoration: none;
+  padding: 8px;
+  text-align: center;
+  border-radius: 5px;
+  background-color:var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  cursor: pointer;
+}
+#card-footer a:hover{
+  background-color: transparent;
+  color: var(--red);
+  
+}
+
+/* ===============================STAGAIRE PAGE================================= */
+#StgCard {
+  display: flex;
+  width: 100%; 
+  margin: 0 auto;
+}
+
+#StgImgCrd {
+  margin-top: 20px;
+  width: 40%;
+}
+
+#StgInfoCrd {
+  width: 60%; 
+  margin: auto;
+  margin-top: 20px;
+  padding-left: 20px; 
+}
+
+
+div #gallery {
+  border: 1px solid #ccc;
+}
+
+div #gallery:hover {
+  border: 1px solid #777;
+}
+
+div #gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div #Nom {
+  padding: 15px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+#StgInfoCrd  ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+#StgInfoCrd ul li {
+  border: 1px solid #ddd;
+  margin-top: -1px; 
+  background-color: #f6f6f6;
+  padding: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+#StgInfoCrd ul li span {
+  font-weight: normal;
+  margin-left: 10px; 
+  text-transform: capitalize;
+
+}
+
+
+#StgInfoCrd ul li:hover {
+  background-color: #ddd;
+}
+/* ----------responsive stagiaire image------------- */
+@media only screen and (max-width: 700px) {
+  #StgImgCrd {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  #StgInfoCrd {
+    width: 100%; 
+    margin-top: 20px;
+    padding-left: 20px; 
+  }
+
+  
+}
+
+
+/* ===================================== FILIERE PAGE ========================== */
+
+#FiliereGrid {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===================================== Profile PAGE ========================== */
+
+#ImgProfile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#profile-image-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+#profile-image-preview {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#profile-image-label span {
+  display: block;
+  margin-top: 10px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+#profile-container {
+  margin:auto;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  width: 90%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button#edit-button {
+  background-color: var(--lightBlue);
+}
+
+button#edit-button:hover,
+button#save-button:hover {
+  background-color:var(--DarkBlue);
+}
+
+/* ===================================== alert messages ========================== */
+
+.alert-success {
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  margin-bottom: 15px;
+  width: max-content;
+  margin-left:10px;
+}
+
+.alert-danger {
+  padding: 20px;
+  background-color:var(--red);
+  color: white;
+  margin-bottom: 15px;
+  width: max-content;
+  margin-left:10px;
+}
+
+.fails {
+  background-color: var(--red);
+}
+.success {
+  background-color: #4CAF50;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.invalid-input{
+  border: 1px solid var(--red) !important;
+}
+
+#error-msg{
+  color: var(--red);
+  font-size: medium;
+}
+
+
+
+/* ===================================== Responsive Design ========================== */
+@media (max-width: 991px) {
+  #navigation {
+    left: -300px;
+  }
+  #navigation.active {
+    width: 300px;
+    left: 0;
+  }
+  #main {
+    width: 100%;
+    left: 0;
+  }
+  #main.active {
+    left: 300px;
+  }
+  #cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #details {
+    grid-template-columns: 1fr;
+  }
+  #recentAbsence {
+    overflow-x: auto;
+  }
+
+}
+
+@media (max-width: 480px) {
+  #cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #cardHeader h2 {
+    font-size: 20px;
+  }
+  #user {
+    min-width: 40px;
+  }
+  #navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  #navigation.active {
+    width: 100%;
+    left: 0;
+  }
+  #toggle {
+    z-index: 10001;
+  }
+  #main.active #toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+}
